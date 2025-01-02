@@ -1,6 +1,6 @@
-.. image:: https://img.shields.io/badge/licence-LGPL--3-blue.svg
-    :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
-    :alt: License: LGPL-3
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.svg
+    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
+    :alt: License: AGPL-3
 
 Odoo Zoom Meet Integration
 ===========================
@@ -8,13 +8,13 @@ Odoo Zoom Meet Integration
 
 Installation
 ============
-	- www.odoo.com/documentation/15.0/setup/install.html
+	- www.odoo.com/documentation/17.0/setup/install.html
 	- Install our custom addon
 
 License
 -------
-General Public License, Version 3 (LGPL v3).
-(https://www.odoo.com/documentation/user/15.0/legal/licenses/licenses.html)
+General Public License, Version 3 (AGPL v3).
+(https://www.gnu.org/licenses/agpl-3.0-standalone.html)
 
 Company
 -------
@@ -22,7 +22,9 @@ Company
 
 Credits
 -------
-Developer: Version 15: Aswani @cybrosys
+Developer: (V15): Aswani
+           (V17) : Gayathri V
+Contact : odoo@cybrosys.com
 
 Contacts
 --------

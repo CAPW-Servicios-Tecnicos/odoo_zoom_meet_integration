@@ -51,7 +51,7 @@
                 <field name="videocall_location" widget="url"
                        text="Join Video Call"
                        options="{'icon': 'fa fa-lg fa-video-camera'}"
-                       attrs="{'invisible': [('videocall_location', '=', False)]}"/>
+                       invisible="videocall_location == False"/>
             </xpath>
         </field>
     </record>

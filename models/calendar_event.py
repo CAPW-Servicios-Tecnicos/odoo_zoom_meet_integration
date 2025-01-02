@@ -1,24 +1,24 @@
 # -*- coding: utf-8 -*-
-#############################################################################
+###############################################################################
 #
 #    Cybrosys Technologies Pvt. Ltd.
 #
-#    Copyright (C) 2023-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
-#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
+#    Copyright (C) 2024-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Author: Gayathri V(odoo@cybrosys.com)
 #
-#    You can modify it under the terms of the GNU LESSER
-#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#    You can modify it under the terms of the GNU AFFERO
+#    GENERAL PUBLIC LICENSE (AGPL v3), Version 3.
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#    GNU AFFERO GENERAL PUBLIC LICENSE (AGPL v3) for more details.
 #
-#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
-#    (LGPL v3) along with this program.
+#    You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
+#    (AGPL v3) along with this program.
 #    If not, see <http://www.gnu.org/licenses/>.
 #
-#############################################################################
+###############################################################################
 import json
 
 import requests
@@ -48,7 +48,9 @@ class CalendarEvent(models.Model):
     def _compute_description(self):
         for rec in self:
             if rec.zoom_meet_code and rec.zoom_meet_url:
-                rec.description = "Join the Zoom Meeting at " + str(rec.zoom_meet_url) + "using the Meeting Code " + str(rec.zoom_meet_code)
+                rec.description = "Join the Zoom Meeting at " + str(
+                    rec.zoom_meet_url) + "using the Meeting Code " + str(
+                    rec.zoom_meet_code)
 
     def action_zoom_meet_url(self):
         """Join zoom from Odoo"""
@@ -66,7 +68,7 @@ class CalendarEvent(models.Model):
     @api.model_create_multi
     def create(self, vals):
         """Supering for creating Zoom meetings"""
-        events = super(CalendarEvent, self).create(vals)
+        events = super().create(vals)
         for event in events:
             if event.is_zoom_meet:
                 self._create_zoom_meet(event)
@@ -74,7 +76,7 @@ class CalendarEvent(models.Model):
 
     def write(self, vals):
         """Supering for enabling zoom meetings while editing"""
-        events = super(CalendarEvent, self).write(vals)
+        events = super().write(vals)
         for event in self:
             if event.is_zoom_meet:
                 if not event.zoom_event:
@@ -153,6 +155,6 @@ class CalendarEvent(models.Model):
                     'Content-Type': 'application/json'}
                 response = requests.delete(url, headers=header)
                 if response.status_code == 401:
-                    raise UserError(_("Token Expired, please refresh token"))
-        events = super(CalendarEvent, self).unlink()
+                    raise UserError(_("Token Expired, Please refresh token"))
+        events = super().unlink()
         return events
